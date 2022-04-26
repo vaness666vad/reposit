@@ -1,0 +1,36 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++ сборка активного файла",
+            "command": "/usr/bin/g++-8",
+            "args": [
+                "-g",
+                "/root/ConnectionClient2.0/main.cpp",
+                "-o",
+                "/root/ConnectionClient2.0/main", //${fileDirname}/${fileBasenameNoExtension}"
+                "-lssl",
+                "-lcrypto",
+                "-lpthread",
+                "-lv4l2"/*,
+                "-L$BOOST_ROOT", 
+                "-lboost_filesystem", 
+                "-lboost_system"*/
+                //"-ljpeg"
+                //"-lturbojpeg",
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Задача создана отладчиком."
+        }
+    ],
+    "version": "2.0.0"
+}

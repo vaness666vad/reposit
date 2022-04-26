@@ -38,19 +38,10 @@ void MailOptions ::decodeBuf(char *input24, char *output8)
             count += 1;
         }
     }
-    
-    // output8[0] = (char)(((input24[0] - 48) * 100) + ((input24[1] - 48) * 10) + 
-    //     input24[2] - 48);
-    // output8[1] = (char)(((input24[3] - 48) * 100) + ((input24[4] - 48) * 10) + 
-    //     input24[5] - 48);
-    // output8[2] = (char)(((input24[6] - 48) * 100) + ((input24[7] - 48) * 10) + 
-    //     input24[8] - 48);
 
     for (int i = 0; i < 8; i += 1)
     {
-        output8[i] = (char)((((int)input24[i * 3 + 0] - 48) * 100) + 
-            (((int)input24[i * 3 + 1] - 48) * 10) + 
-            (int)input24[i * 3 + 2] - 48);
+        output8[i] = (char)(((input24[i * 3 + 0] - 48) * 100) + ((input24[i * 3 + 1] - 48) * 10) + input24[i * 3 + 2] - 48);
     }
 }
 
@@ -166,7 +157,7 @@ IpPortData MailOptions ::ReadServerIpPortFromMail(string hostname, int port, str
         throw "Последнее сообщение не содержит полезного контента";
 
     decodeBuf(r, (char *)&ippd);
-    fprintf(stderr, "Чтение данных выполнено: %u.%u.%u.%u:%u\n", ippd.Ip[0], ippd.Ip[1], ippd.Ip[2], ippd.Ip[3], ippd.Port);
+    fprintf(stderr, "Чтение данных выполнено: %d.%d.%d.%d:%d\n", ippd.Ip[0], ippd.Ip[1], ippd.Ip[2], ippd.Ip[3], ippd.Port);
 
     SSL_free(ssl);     /* release connection state */
     close(server);     /* close socket */

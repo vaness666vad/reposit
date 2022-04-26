@@ -64,10 +64,9 @@ int ConnectProcedure ::connectAsync(char hostname[4], int port, sockaddr_in* end
     struct sockaddr_in adr = {0};
     adr.sin_family = AF_INET;
     adr.sin_port = htons(port);
-    adr.sin_addr.s_addr = *(int*)hostname;
-  //    char ip[16];
-  //  sprintf(ip, "%d.%d.%d.%d%c", hostname[0], hostname[1], hostname[2], hostname[3], '\0');
-//    inet_pton(AF_INET, ip, &adr.sin_addr);
+    char ip[16];
+    sprintf(ip, "%d.%d.%d.%d%c", hostname[0], hostname[1], hostname[2], hostname[3], '\0');
+    inet_pton(AF_INET, ip, &adr.sin_addr);
 
      //signal(SIGIO, hsig);
 fcntl(fd, F_SETFL, fcntl(fd, F_GETFL) | O_ASYNC);
@@ -94,7 +93,7 @@ int ConnectProcedure ::ConnectToServer(char hostname[4], int port, string login,
 int ConnectProcedure ::connectSocket(char hostname[4], int port)
 {
     fprintf(stderr, "Процесс подключения сокета к серверу...\n");
-    fprintf(stderr, "%d.%d.%d.%d:%d\n", (unsigned char)hostname[0], (unsigned char)hostname[1], (unsigned char)hostname[2], (unsigned char)hostname[3], port);
+    fprintf(stderr, "%d.%d.%d.%d:%d\n", hostname[0], hostname[1], hostname[2], hostname[3], port);
     int fd = socket(AF_INET, SOCK_STREAM, 0);
     if (fd == -1)
         throw "Не удалось открыть сокет";
@@ -104,10 +103,9 @@ int ConnectProcedure ::connectSocket(char hostname[4], int port)
     struct sockaddr_in adr = {0};
     adr.sin_family = AF_INET;
     adr.sin_port = htons(port);
-    adr.sin_addr.s_addr = *(int*)hostname;
-    //char ip[16];
-    //sprintf(ip, "%d.%d.%d.%d%c", hostname[0], hostname[1], hostname[2], hostname[3], '\0');
-    //inet_pton(AF_INET, ip, &adr.sin_addr);
+    char ip[16];
+    sprintf(ip, "%d.%d.%d.%d%c", hostname[0], hostname[1], hostname[2], hostname[3], '\0');
+    inet_pton(AF_INET, ip, &adr.sin_addr);
     int isConnect = connect(fd, (struct sockaddr *)&adr, sizeof adr);
     if (isConnect == -1)
         throw "Не удалось установить соединение сокета";
