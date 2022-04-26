@@ -64,9 +64,10 @@ int ConnectProcedure ::connectAsync(char hostname[4], int port, sockaddr_in* end
     struct sockaddr_in adr = {0};
     adr.sin_family = AF_INET;
     adr.sin_port = htons(port);
-    char ip[16];
-    sprintf(ip, "%d.%d.%d.%d%c", hostname[0], hostname[1], hostname[2], hostname[3], '\0');
-    inet_pton(AF_INET, ip, &adr.sin_addr);
+    adr.sin_addr.s_addr = *(int*)hostname;
+    #char ip[16];
+    #sprintf(ip, "%d.%d.%d.%d%c", hostname[0], hostname[1], hostname[2], hostname[3], '\0');
+    #inet_pton(AF_INET, ip, &adr.sin_addr);
 
      //signal(SIGIO, hsig);
 fcntl(fd, F_SETFL, fcntl(fd, F_GETFL) | O_ASYNC);
@@ -103,9 +104,10 @@ int ConnectProcedure ::connectSocket(char hostname[4], int port)
     struct sockaddr_in adr = {0};
     adr.sin_family = AF_INET;
     adr.sin_port = htons(port);
-    char ip[16];
-    sprintf(ip, "%d.%d.%d.%d%c", hostname[0], hostname[1], hostname[2], hostname[3], '\0');
-    inet_pton(AF_INET, ip, &adr.sin_addr);
+    adr.sin_addr.s_addr = *(int*)hostname;
+    //char ip[16];
+    //sprintf(ip, "%d.%d.%d.%d%c", hostname[0], hostname[1], hostname[2], hostname[3], '\0');
+   //net_pton(AF_INET, ip, &adr.sin_addr);
     int isConnect = connect(fd, (struct sockaddr *)&adr, sizeof adr);
     if (isConnect == -1)
         throw "Не удалось установить соединение сокета";

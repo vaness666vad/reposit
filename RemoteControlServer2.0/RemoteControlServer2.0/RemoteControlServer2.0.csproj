@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E6BDCB91-C729-4952-8E58-1E51591D06AA}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>RemoteControlServer2._0</RootNamespace>
+    <AssemblyName>RemoteControlServer2.0</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClientObject\ClientObj.cs" />
+    <Compile Include="ClientObject\RemoteDevice.cs" />
+    <Compile Include="ClientObject\SessionData.cs" />
+    <Compile Include="ClientObject\Terminal.cs" />
+    <Compile Include="ClientsControl.cs" />
+    <Compile Include="ConnectListener.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServerConfig\Config.cs" />
+    <Compile Include="ServerConfig\ConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServerConfig\ConfigForm.Designer.cs">
+      <DependentUpon>ConfigForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Loger\Loger.csproj">
+      <Project>{7aafc26a-02df-45ee-9288-78fe6eaa685d}</Project>
+      <Name>Loger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MailOptions\MailOptions.csproj">
+      <Project>{e97a3721-5a22-4db4-88b6-f9ca19c4fa33}</Project>
+      <Name>MailOptions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProtectedValues\ProtectedValues.csproj">
+      <Project>{b688e0d6-ed28-40c8-9600-df280f87a6c9}</Project>
+      <Name>ProtectedValues</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProtocolCommunication\ProtocolCommunication.csproj">
+      <Project>{af1ed7ce-01a2-4f44-867d-7245a73c1606}</Project>
+      <Name>ProtocolCommunication</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="ServerConfig\ConfigForm.resx">
+      <DependentUpon>ConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

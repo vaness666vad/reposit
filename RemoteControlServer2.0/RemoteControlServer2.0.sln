@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoteControlServer2.0", "RemoteControlServer2.0\RemoteControlServer2.0.csproj", "{E6BDCB91-C729-4952-8E58-1E51591D06AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtocolCommunication", "ProtocolCommunication\ProtocolCommunication.csproj", "{AF1ED7CE-01A2-4F44-867D-7245A73C1606}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternetCommunicator", "InternetCommunicator\InternetCommunicator.csproj", "{B37AA578-D88A-419B-9E7F-1A65EF05A8EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailOptions", "MailOptions\MailOptions.csproj", "{E97A3721-5A22-4DB4-88B6-F9CA19C4FA33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loger", "Loger\Loger.csproj", "{7AAFC26A-02DF-45EE-9288-78FE6EAA685D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terminal", "Terminal\Terminal.csproj", "{480D4A2E-8E6A-4E3A-B0AA-2EB3431CB2D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtectedValues", "ProtectedValues\ProtectedValues.csproj", "{B688E0D6-ED28-40C8-9600-DF280F87A6C9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6BDCB91-C729-4952-8E58-1E51591D06AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6BDCB91-C729-4952-8E58-1E51591D06AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6BDCB91-C729-4952-8E58-1E51591D06AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6BDCB91-C729-4952-8E58-1E51591D06AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF1ED7CE-01A2-4F44-867D-7245A73C1606}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF1ED7CE-01A2-4F44-867D-7245A73C1606}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF1ED7CE-01A2-4F44-867D-7245A73C1606}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF1ED7CE-01A2-4F44-867D-7245A73C1606}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B37AA578-D88A-419B-9E7F-1A65EF05A8EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B37AA578-D88A-419B-9E7F-1A65EF05A8EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B37AA578-D88A-419B-9E7F-1A65EF05A8EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B37AA578-D88A-419B-9E7F-1A65EF05A8EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E97A3721-5A22-4DB4-88B6-F9CA19C4FA33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E97A3721-5A22-4DB4-88B6-F9CA19C4FA33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E97A3721-5A22-4DB4-88B6-F9CA19C4FA33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E97A3721-5A22-4DB4-88B6-F9CA19C4FA33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AAFC26A-02DF-45EE-9288-78FE6EAA685D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AAFC26A-02DF-45EE-9288-78FE6EAA685D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AAFC26A-02DF-45EE-9288-78FE6EAA685D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AAFC26A-02DF-45EE-9288-78FE6EAA685D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{480D4A2E-8E6A-4E3A-B0AA-2EB3431CB2D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{480D4A2E-8E6A-4E3A-B0AA-2EB3431CB2D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{480D4A2E-8E6A-4E3A-B0AA-2EB3431CB2D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{480D4A2E-8E6A-4E3A-B0AA-2EB3431CB2D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B688E0D6-ED28-40C8-9600-DF280F87A6C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B688E0D6-ED28-40C8-9600-DF280F87A6C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B688E0D6-ED28-40C8-9600-DF280F87A6C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B688E0D6-ED28-40C8-9600-DF280F87A6C9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BA917576-3EFC-43A6-9551-1F41C5BAF2FC}
+	EndGlobalSection
+EndGlobal

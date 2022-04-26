@@ -1,0 +1,81 @@
+﻿<Window x:Class="Terminal.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Terminal"
+        mc:Ignorable="d"
+        Title="Подключение к сервеу" WindowStyle="ToolWindow"  WindowStartupLocation="CenterScreen" MinWidth="300" Height="386" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <RadioButton Grid.Row="0" x:Name="radioButton" Content="Локальное подключение к серверу" IsChecked="{Binding Path=LocalConnect}"/>
+        <RadioButton Grid.Row="1" x:Name="radioButton1" Content="Прямое подключение к серверу" IsChecked="{Binding Path=ForwardConnect}"/>
+        <RadioButton Grid.Row="2" x:Name="radioButton2" Content="Подключение через почтовый сервер" IsChecked="{Binding Path=MailConnect}"/>
+
+        <Grid Grid.Row="3" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="Имя"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Логин"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Пароь"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="IMAP сервера"/>
+            <Label Grid.Row="4" Grid.Column="0" Content="Порт сервера"/>
+            <Label Grid.Row="5" Grid.Column="0" Content="Ip адрес"/>
+            <Label Grid.Row="6" Grid.Column="0" Content="Порт"/>
+            <Label Grid.Row="7" Grid.Column="0" Content="Привязка"/>
+            <Label Grid.Row="8" Grid.Column="0" Content="Сетевая карта"/>
+            <Label Grid.Row="9" Grid.Column="0" Content="Привязка порта"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}" Background="{Binding Path=NameColor}" HorizontalContentAlignment="Center"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Login, UpdateSourceTrigger=PropertyChanged}" Background="{Binding Path=LoginColor}" IsEnabled="{Binding Path=LoginEnabled}" HorizontalContentAlignment="Center"/>
+            <PasswordBox x:Name="PassBox" Grid.Row="2" Grid.Column="1" PasswordChar="*" Background="{Binding Path=PassColor}" IsEnabled="{Binding Path=PassEnabled}" HorizontalContentAlignment="Center"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=Mail, UpdateSourceTrigger=PropertyChanged}" Background="{Binding Path=MailColor}" IsEnabled="{Binding Path=MailEnabled}" HorizontalContentAlignment="Center"/>
+            <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Path=MailPort, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=MailPortEnabled}" HorizontalContentAlignment="Center"/>
+            <Grid Grid.Row="5" Grid.Column="1" IsEnabled="{Binding Path=IpEnabled, UpdateSourceTrigger=PropertyChanged}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0" Text="{Binding Path=Ip1, UpdateSourceTrigger=PropertyChanged}" HorizontalContentAlignment="Center"/>
+                <Label Grid.Column="1" Content="."/>
+                <TextBox Grid.Column="2" Text="{Binding Path=Ip2, UpdateSourceTrigger=PropertyChanged}" HorizontalContentAlignment="Center"/>
+                <Label Grid.Column="3" Content="."/>
+                <TextBox Grid.Column="4" Text="{Binding Path=Ip3, UpdateSourceTrigger=PropertyChanged}" HorizontalContentAlignment="Center"/>
+                <Label Grid.Column="5" Content="."/>
+                <TextBox Grid.Column="6" Text="{Binding Path=Ip4, UpdateSourceTrigger=PropertyChanged}" HorizontalContentAlignment="Center"/>
+            </Grid>
+            <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding Path=Port, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=PortEnabled}" HorizontalContentAlignment="Center"/>
+            <CheckBox Grid.Row="7" Grid.Column="1" IsChecked="{Binding Path=IsBind}" VerticalAlignment="Center" Content="явно привязать порт"/>
+            <ComboBox Grid.Row="8" Grid.Column="1" ItemsSource="{Binding Path=InternetControllerList}" SelectedItem="{Binding Path=InternetController}" SelectedValuePath="{Binding Path=InternetControllerName}" DisplayMemberPath="Description" IsEnabled="{Binding Path=IsBind}"/>
+            <TextBox Grid.Row="9" Grid.Column="1" Text="{Binding Path=BindPort, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=IsBind}" HorizontalContentAlignment="Center"/>
+        </Grid>
+        <CheckBox Grid.Row="4" Content="Сохранить данные" IsChecked="{Binding Path=SaveChange}"/>
+        <Button Grid.Row="5" x:Name="button" Content="Подключение" Height="21" VerticalAlignment="Bottom" IsEnabled="{Binding Path=ButtionEnabled}" Click="ConnectToServer"/>
+    </Grid>
+</Window>
