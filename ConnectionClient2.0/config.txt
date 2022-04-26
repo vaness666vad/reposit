@@ -1,0 +1,5 @@
+hostname = 'imap.yandex.ru'
+port = '993'
+login = 'babkaclava@yandex.ru'
+password = '666ginzzu666'
+identificator = 'RemoteDevice1'
